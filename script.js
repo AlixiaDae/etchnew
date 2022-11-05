@@ -1,17 +1,52 @@
-const defaultGridNumbers = {col: 16, row:16}
-
-
+const container = document.querySelector('.main-wrapper')
+const cellNumber= 16
 const gridWrapper = document.createElement('div')
 
 gridWrapper.classList.add('grid-wrapper')
-document.body.appendChild(gridWrapper)
+container.appendChild(gridWrapper)
 
-const defaultGrid = (n) => {
-    for (let i = 0; i < (n.col * n.row); i++) {
-        const gridCell = document.createElement('div')
-        gridCell.classList.add('cell')
-        gridWrapper.appendChild(gridCell)
+function grid(size) {
+    gridWrapper.style.gridTemplate = `repeat(${size},1fr)/repeat(${size},1fr)`
+    for(let i = 0; i < (size*size); i++) {
+        const cell = document.createElement('div')
+        cell.classList.add('cell')
+        cell.addEventListener('mouseover',mode)
+
+        gridWrapper.appendChild(cell)
     }
 }
 
-defaultGrid(defaultGridNumbers)
+function clearGrid() {
+    gridWrapper.textContent = ''
+}
+
+function mode(cell) {
+    if(eraseMode == true) {
+        cell.target.style.backgroundColor = 'whitesmoke'
+    } else {
+        cell.target.style.backgroundColor = 'black'
+    }
+}
+
+
+const modeBtns = document.querySelectorAll('button')
+let drawMode = true;
+let eraseMode = false;
+
+modeBtns.forEach(btn => {
+    btn.addEventListener('click', () =>{
+        if(btn.textContent == 'Erase') {
+            drawMode = false;
+            eraseMode = true;
+        } else {
+            drawMode = true;
+            eraseMode = false;
+        }
+    })
+})
+
+
+
+
+
+grid(cellNumber)

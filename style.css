@@ -4,18 +4,45 @@ body {
     justify-content: center;
 }
 
+.main-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.erase,
+.draw {
+    height: 40px;
+    width: 90px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
 /*Default grid*/
 
 .grid-wrapper {
     margin-top: 60px;
     display: grid;
-    grid-template: repeat(16,1fr)/repeat(16,1fr);
     height: 700px;
     width: 700px;
 
-    background-color: lightblue;
+    background-color: whitesmoke;
 }
 
 .cell {
     border: 1px solid black;
+}
+
+
+
+/*Pseudo-classes*/
+
+.cell:hover {
+    background-color: black;
 }
