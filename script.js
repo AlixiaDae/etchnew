@@ -1,5 +1,5 @@
-const container = document.querySelector('.main-wrapper')
-const cellNumber= 16
+const container = document.querySelector('.grid-container')
+
 const gridWrapper = document.createElement('div')
 
 gridWrapper.classList.add('grid-wrapper')
@@ -28,6 +28,10 @@ function mode(cell) {
     }
 }
 
+function clear() {
+    clearGrid()
+    grid(cellNumber)
+}
 
 const modeBtns = document.querySelectorAll('button')
 let drawMode = true;
@@ -38,15 +42,24 @@ modeBtns.forEach(btn => {
         if(btn.textContent == 'Erase') {
             drawMode = false;
             eraseMode = true;
-        } else {
+        } else if(btn.textContent == 'Draw'){
             drawMode = true;
             eraseMode = false;
+        } else if(btn.textContent == 'Clear') {
+            clear()
         }
     })
 })
 
+const newSizeBtn = document.querySelector('.new-size')
 
+newSizeBtn.addEventListener('click', () => {
+    clearGrid()
+    let number = prompt('Please enter a value between 16 and 100')
+    cellNumber = number
+    grid(cellNumber)
+})
 
-
+let cellNumber= 16
 
 grid(cellNumber)

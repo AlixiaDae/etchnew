@@ -1,7 +1,10 @@
 body {
-    background-color: pink;
+    background-color: #c5b69f;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .main-wrapper {
@@ -17,17 +20,28 @@ body {
 }
 
 .erase,
-.draw {
+.draw,
+.new-size,
+.clear {
     height: 40px;
-    width: 90px;
+    width: 140px;
     font-size: 20px;
     border-radius: 10px;
 }
 
 /*Default grid*/
 
+.grid-container {
+    
+    padding: 50px;
+    background-color: #B73E3E;
+    border: 5px solid black;
+    border-radius: 15px;
+    position: relative;
+}
+
 .grid-wrapper {
-    margin-top: 60px;
+    
     display: grid;
     height: 700px;
     width: 700px;
@@ -36,7 +50,16 @@ body {
 }
 
 .cell {
-    border: 1px solid black;
+    border: 1px solid rgb(209, 209, 209);
+}
+
+.etch-label {
+    position: absolute;
+    bottom: 10px;
+    left: 40%;
+    color: whitesmoke;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 
