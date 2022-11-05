@@ -1,0 +1,21 @@
+body {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+}
+
+/*Default grid*/
+
+.grid-wrapper {
+    margin-top: 60px;
+    display: grid;
+    grid-template: repeat(16,1fr)/repeat(16,1fr);
+    height: 700px;
+    width: 700px;
+
+    background-color: lightblue;
+}
+
+.cell {
+    border: 1px solid black;
+}
